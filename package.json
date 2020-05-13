@@ -4,15 +4,23 @@
   "authors": [
     "Jan Jadud <jan.jadud@gmail.com>"
   ],
-  "description": "",
+  "engines": {
+    "ghost": ">=3.0.0",
+    "ghost-api": "v3"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/westrem/pub.gojadud.com.git"
+  },
+  "description": "Ghost Theme",
   "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.8.7",
-    "@babel/preset-env": "^7.8.7",
     "@babel/register": "^7.8.6",
+    "@babel/preset-env": "^7.8.7",
     "dateformat": "^1.0.11",
     "del": "^5.1.0",
-    "fontfaceobserver": "1.6.3",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "7.0.1",
     "gulp-htmlmin": "^3.0.0",
@@ -21,14 +29,30 @@
     "gulp-sass": "^4.0.2",
     "http-server": "^0.9.0",
     "npm-run-all": "^4.0.0",
-    "randomstring": "^1.1.5",
-    "replace": "^0.3.0"
+    "randomstring": "^1.1.5"
   },
   "scripts": {
     "watch": "gulp watch",
     "build": "gulp clean && gulp build",
-    "deploy": "gulp clean && gulp build && ./deploy.sh",
+    "deploy": "gulp clean && gulp build && gulp deploy",
     "serve": "node ./node_modules/http-server/bin/http-server ./dist -p 3000 -o -c-1",
     "start": "gulp clean && gulp build && npm-run-all --parallel watch serve"
+  },
+  "config": {
+    "posts_per_page": 3,
+    "image_sizes": {
+      "s": {
+        "width": 320
+      },
+      "m": {
+        "width": 640
+      },
+      "l": {
+        "width": 960
+      },
+      "xl": {
+        "width": 1920
+      }
+    }
   }
 }

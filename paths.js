@@ -1,36 +1,42 @@
+/*
+* src/
+*   assets/
+*     css/
+*     favicons/
+*     images/
+*   styles/
+*   template/
+*     partials/
+*
+* dist/
+*   ...template/
+*   assets/
+*     ...root/
+*
+*
+*/
 const appPath = './';
 const appPathSrc = appPath + 'src/';
 const appPathDist = appPath + 'dist/';
-const deployPath = appPath + '../../builds/';
-
-/*
- * Websupport specifics
- */
-const linkPath = '~/gojadud.com/web';
-const sourcePath = '~/gojadud.com/bin/gojadud.com/builds/';
+const appPathDistAssets = appPathDist + 'assets/';
+const deployPath = appPath + 'deploy/';
 
 const PATHS = {
   APP: {
     dist: appPathDist,
+    assets: appPathDistAssets,
     SASS: {
       entry: appPathSrc + 'styles/main.scss',
       src: appPathSrc + '**/*.scss',
-      dest: appPathDist + 'styles/'
+      dest: appPathDistAssets + 'css/'
     },
-    PAGES: {
-      src: appPathSrc + '*.html',
+    TEMPLATES: {
+      src: appPathSrc + 'template/**/*.hbs',
       dest: appPathDist
     },
     ROOT: {
-      src: appPathSrc + 'root/**/*.*'
-    },
-    IMAGES: {
-      src: appPathSrc + 'images/**/*.*',
-      dest: appPathDist + 'images/'
-    },
-    FONTS: {
-      src: appPathSrc + 'fonts/**/*.*',
-      dest: appPathDist + 'fonts/'
+      src: appPathSrc + 'assets/**/*.*',
+      dest: appPathDistAssets
     },
     DEPLOY: {
       src: appPathDist + '**/*.*',

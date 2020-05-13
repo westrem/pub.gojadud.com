@@ -3,22 +3,20 @@ import PATHS from './paths';
 
 // tasks
 import clean from './gulp_tasks/clean';
-import assetsImages from './gulp_tasks/assetsImages';
-import processSass from './gulp_tasks/sass';
-import pages from './gulp_tasks/pages';
-import assetsRoot from './gulp_tasks/assetsRoot';
+import sass from './gulp_tasks/sass';
+import templates from './gulp_tasks/templates';
+import assets from './gulp_tasks/assets';
 import deploy from './gulp_tasks/deploy';
 
 gulp.task('clean', clean);
 gulp.task('deploy', deploy);
 
-export const build = gulp.series(processSass, pages, assetsImages, assetsRoot);
+export const build = gulp.series(sass, templates, assets);
 
 export function watch() {
-  gulp.watch(PATHS.APP.SASS.src, processSass);
-  gulp.watch(PATHS.APP.PAGES.src, pages);
-  gulp.watch(PATHS.APP.IMAGES.src, assetsImages);
-  gulp.watch(PATHS.APP.ROOT.src, assetsRoot);
+  gulp.watch(PATHS.APP.SASS.src, sass);
+  gulp.watch(PATHS.APP.PAGES.src, templates);
+  gulp.watch(PATHS.APP.ROOT.src, assets);
 }
 
 function emptyDefault() {}
