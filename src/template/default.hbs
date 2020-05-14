@@ -1,1 +1,63 @@
-default
+<!doctype html>
+<html lang="en" prefix="og: http://ogp.me/ns#">
+
+<head>
+  <meta charset="utf-8">
+  <title>{{meta_title}}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700|Fira+Mono|Vesper+Libre&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" type="text/css" href="{{asset "css/normalize.css"}}" />
+  <link rel="stylesheet" type="text/css" href="{{asset "css/main.css"}}" />
+
+  {{ghost_head}}
+</head>
+
+<body class="{{body_class}}">
+  <div class="wrapper">
+    <header>
+      <a href="https://gojadud.com" class="logo" title="Go to homepage">
+        <img src="{{asset "images/logo_jdd@2x.png"}}" alt="Jdd" />
+      </a>
+
+      <address>
+        <a href="mailto:hello&#64;gojadud.com">hello&#64;gojadud.com</a>
+      </address>
+    </header>
+
+    <section class="navigation">
+      <nav>
+        <ul>
+          <li>
+            <a href="https://gojadud.com"><span>👋</span>About</a>
+          </li>
+          <li>
+            <a href="https://gojadud.com/experience.html"><span>🎩</span>Experience</a>
+          </li>
+          <li>
+            <a href="https://gojadud.com/skills.html"><span>🕹</span>Skills</a>
+          </li>
+          <li class="active">
+            <a href="{{@site.url}}" title="Coming soon"><span>🗞</span>Articles</a>
+          </li>
+          <li class="disabled">
+            <a href="#" title="Coming soon"><span>🔬</span>Case Studies</a>
+          </li>
+        </ul>
+      </nav>
+
+      <address>
+        <a href="mailto:hello&#64;gojadud.com">hello&#64;gojadud.com</a>
+      </address>
+    </section>
+
+    <main class="{{post_class}}">
+      {{{body}}}
+    </main>
+  </div>
+
+  {{ghost_foot}}
+</body>
+
+</html>

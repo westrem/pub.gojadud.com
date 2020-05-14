@@ -15,6 +15,8 @@ $color-link-active: #1c83bf;
 $color-link-visited: #a07e9c;
 $color-link-disabled: #808080;
 
+// font-family: 'Fira Mono', monospace;
+
 /*
  * Breakpoints
  */
@@ -231,59 +233,6 @@ main {
   }
 }
 
-blockquote {
-  display: block;
-  color: $color-text-inverted;
-  font-family: 'Vesper Libre', serif;
-
-  margin: 30px 0px 20px 0px;
-  padding: 16px 15px 12px 15px;
-  font-size: 1.8rem;
-  line-height: 2.4rem;
-
-  @include moreThan641 {
-    border-radius: 6px;
-    margin: 40px 0px 28px 0px;
-    padding: 16px 20px 12px 20px;
-    font-size: 2.2rem;
-    line-height: 3rem;
-  }
-
-  background: #2D9EE0; /* Old browsers */
-  background: -moz-linear-gradient(-45deg, #5BB3E7 0%, #2D9EE0 100%); /* FF3.6-15 */
-  background: -webkit-linear-gradient(-45deg, #5BB3E7 0%, #2D9EE0 100%); /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(135deg, #5BB3E7 0%, #2D9EE0 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5BB3E7', endColorstr='#2D9EE0',GradientType=1 ); /* IE6-9 */
-
-  a, a:hover, a:active, a:visited {
-    color: $color-text-inverted;
-    display: inline-block;
-    position: relative;
-    text-decoration: none;
-
-    &::before {
-      transition: all 0.4s ease;
-
-      content: "";
-      display: block;
-      width: 100%;
-      height: 1px;
-      position: absolute;
-      left: 0px;
-      bottom: 6px;
-      background-color: $color-text-inverted;
-
-      @include moreThan641 {
-        bottom: 8px;
-      }
-    }
-  }
-
-  a:hover::before {
-    background-color: transparent;
-  }
-}
-
 article {
   position: relative;
 }
@@ -300,191 +249,6 @@ main > article > p {
     padding: 20px 0px 0px 0px;
     font-size: 1.8rem;
     line-height: 3.3rem;
-  }
-}
-
-article > .highlights {
-  padding: 20px 15px 0px 15px;
-
-  @include moreThan1200 {
-    column-count: 2;
-    column-gap: 20px;
-    padding: 20px 20px 0px 20px;
-  }
-
-  article {
-    margin-bottom: 20px;
-    break-inside: avoid;
-
-    h4 {
-      font-family: 'Roboto', sans-serif;
-      font-weight: 700;
-      font-size: 1.6rem;
-      line-height: 2rem;
-      margin: 0px 0px 10px 0px;
-
-      @include moreThan1200 {
-        font-size: 1.8rem;
-        line-height: 2.2rem;
-      }
-    }
-
-    p {
-      margin: 0px;
-      padding: 0px;
-
-      font-family: 'Vesper Libre', serif;
-      font-size: 1.3rem;
-      line-height: 1.8rem;
-
-      @include moreThan1200 {
-        font-size: 1.4rem;
-        line-height: 2rem;
-      }
-
-      &.examples {
-        padding-top: 5px;
-      }
-    }
-
-    a {
-      display: inline-block;
-      position: relative;
-
-      font-size: 1.3rem;
-      line-height: 1.8rem;
-      color: $color-link-normal;
-      text-decoration: none;
-
-      @include moreThan1200 {
-        font-size: 1.4rem;
-        line-height: 2rem;
-      }
-
-      &::before {
-        transition: all 0.4s ease;
-
-        content: "";
-        display: block;
-        width: 100%;
-        height: 1px;
-        position: absolute;
-        left: 0px;
-        bottom: 4px;
-        background-color: $color-link-normal;
-
-        @include moreThan1200 {
-          bottom: 5px;
-        }
-      }
-
-      &:hover {
-        color: $color-link-hover;
-
-        &::before {
-          background-color: transparent;
-        }
-      }
-
-      &:active {
-        color: $color-link-normal;
-
-        &::before {
-          background-color: $color-link-normal;
-        }
-      }
-
-      &:visited {
-        color: $color-link-normal;
-
-        &:hover::before {
-          background-color: transparent;
-        }
-      }
-    }
-  }
-}
-
-article > .lists {
-  column-count: 3;
-  column-gap: 15px;
-  padding: 20px 15px 0px 15px;
-
-  @include moreThan641 {
-    column-count: 4;
-  }
-
-  @include moreThan1200 {
-    column-gap: 20px;
-    padding: 20px 20px 0px 20px;
-  }
-
-  ul {
-    margin: 0px 0px 20px 0px;
-    padding: 0px;
-    break-inside: avoid;
-    list-style: none;
-  }
-
-  li {
-    margin: 0px;
-    padding: 0px;
-
-    a {
-      display: inline-block;
-      position: relative;
-
-      font-size: 1.3rem;
-      line-height: 1.8rem;
-      color: $color-link-normal;
-      text-decoration: none;
-
-      @include moreThan1200 {
-        font-size: 1.4rem;
-        line-height: 2rem;
-      }
-
-      &::before {
-        transition: all 0.4s ease;
-
-        content: "";
-        display: block;
-        width: 100%;
-        height: 1px;
-        position: absolute;
-        left: 0px;
-        bottom: 5px;
-        background-color: transparent;
-
-        @include moreThan1200 {
-          bottom: 6px;
-        }
-      }
-
-      &:hover {
-        color: $color-link-hover;
-
-        &::before {
-          background-color: $color-link-hover;
-        }
-      }
-
-      &:active {
-        color: $color-link-active;
-
-        &::before {
-          background-color: $color-link-active;
-        }
-      }
-
-      &:visited {
-        color: $color-link-visited;
-
-        &:hover::before {
-          background-color: $color-link-visited;
-        }
-      }
-    }
   }
 }
 
@@ -983,52 +747,6 @@ article > aside {
   }
 }
 
-.name-photo {
-  width: 120px;
-
-  @include upTo1199 {
-    margin: 0px auto;
-  }
-
-  @include moreThan1200 {
-    position: absolute;
-    right: 80px;
-    top: 68px;
-
-    &::before {
-      content: "";
-      display: block;
-      width: 2px;
-      height: 68px;
-      position: absolute;
-      right: 60px;
-      top: -68px;
-
-      background-color: $color-warning;
-    }
-  }
-
-  img {
-    padding: 2px;
-    border-radius: 50%;
-    border: 2px solid $color-warning;
-    background-color: #fff;
-    max-width: 112px;
-  }
-
-  h1 {
-    width: 160px;
-    height: 30px;
-    position: relative;
-    left: -20px;
-    margin-top: 12px;
-    color: transparent;
-
-    background: transparent url("../images/name@2x.png?v={*version*}") 50% 50% no-repeat;
-    background-size: contain;
-  }
-}
-
 .page-experience, .page-skills {
   @include upTo1199 {
     main > blockquote {
@@ -1143,17 +861,5 @@ article > aside {
 
   .navigation {
     display: none;
-  }
-
-  article > .highlights {
-    column-count: 2;
-    column-gap: 20px;
-    padding: 20px 20px 0px 20px;
-  }
-
-  .name-photo h1 {
-    text-align: center;
-    width: auto;
-    left: 0px;
   }
 }
