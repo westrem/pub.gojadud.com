@@ -1073,6 +1073,10 @@ article.post-full .post-content {
       }
     }
 
+    em {
+      font-style: normal;
+    }
+
     @include blockSpacing;
   }
 
@@ -1434,7 +1438,7 @@ article.post-full > footer {
       display: inline-block;
       font-size: 1.2rem;
       line-height: 2.0rem;
-      padding-right: 1rem;
+      margin-right: 1rem;
     }
   }
 }
@@ -1782,7 +1786,7 @@ article.post-full > footer {
         @include moreThan1200 {
           a {
             font-weight: 700;
-            cursor: not-allowed;
+            //cursor: not-allowed;
 
             &::before {
               content: "";
@@ -2066,7 +2070,11 @@ article.post-full > footer {
     position: absolute;
     background-color: transparent;
     left: 0px;
-    bottom: 0px;
+    bottom: 4px;
+
+    @include moreThan1200 {
+      bottom: 1px;
+    }
   }
 
   &:hover {
