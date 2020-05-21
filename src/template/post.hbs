@@ -1,1 +1,74 @@
-post
+{{!< default}}
+{{!-- The tag above means: insert everything in this file into the {body} of the default.hbs template --}}
+
+{{#post}}
+<article class="post-full {{post_class}} {{#if feature_image}}post--has-feature-image{{/if}}">
+  <aside class="post-meta">
+    <section class="dates">
+      <span class="upd">{{date updated_at format="MMM D, YYYY"}}</span>
+      <span class="pub">{{date published_at format="MMM D, YYYY"}}</span>
+    </section>
+    <section class="reading-time">
+      {{reading_time}} time
+    </section>
+    <section class="tags tags-vertical">
+      {{#foreach tags}}
+        <span><a href="{{url}}" title="{{name}}" class="tag tag-{{slug}}">#{{name}}</a></span>
+      {{/foreach}}
+    </section>
+    <section class="tags tags-vertical">
+      <span><a href="#" title="Share on Facebook" class="tag">facebook</a></span>
+      <span><a href="#" title="Share on Twitter" class="tag">twitter</a></span>
+      <span><a href="#" title="Share via Email" class="tag">email</a></span>
+    </section>
+  </aside>
+
+  {{#if feature_image}}
+    <div class="post-feature-image">
+      <img
+        srcset="
+          {{img_url feature_image size="s"}} 375w,
+          {{img_url feature_image size="m"}} 660w,
+          {{img_url feature_image size="l"}} 990w,
+          {{img_url feature_image size="xl"}} 1320w"
+        sizes="
+          (max-width: 640px) 100vw,
+          (min-width: 641px) 640px"
+        src="{{img_url feature_image size="xl"}}"
+        alt="{{title}}"
+      />
+    </div>
+  {{/if}}
+
+  <h1 class="post-title">{{title}}</h1>
+
+  <section class="post-content">
+    {{content}}
+  </section>
+
+  <footer>
+    <section class="tags tags-horizontal">
+      {{#foreach tags}}
+        <a href="{{url}}" title="{{name}}" class="tag tag-{{slug}}">#{{name}}</a>
+      {{/foreach}}
+    </section>
+    <section class="tags tags-horizontal">
+      <a href="#" title="Share on Facebook" class="tag">facebook</a>
+      <a href="#" title="Share on Twitter" class="tag">twitter</a>
+      <a href="#" title="Share via Email" class="tag">email</a>
+    </section>
+  </footer>
+
+  <a class="beer-banner" href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=QLRS7L3PPMGYJ&currency_code=USD&source=url" target="_blank">
+    <div class="beers">
+      <span class="normal">🍺</span>
+      <span class="hover">🍻</span>
+    </div>
+    <div class="text">
+      <em>Like the content?</em>
+      <strong>Buy me a beer!</strong>
+    </div>
+    <div class="button">Donate</div>
+  </a>
+</article>
+{{/post}}

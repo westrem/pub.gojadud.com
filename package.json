@@ -39,19 +39,19 @@
     "start": "gulp clean && gulp build && npm-run-all --parallel watch serve"
   },
   "config": {
-    "posts_per_page": 3,
+    "posts_per_page": 10,
     "image_sizes": {
       "s": {
-        "width": 320
+        "width": 375
       },
       "m": {
-        "width": 640
+        "width": 660
       },
       "l": {
-        "width": 960
+        "width": 990
       },
       "xl": {
-        "width": 1920
+        "width": 1320
       }
     }
   }

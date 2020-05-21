@@ -15,8 +15,9 @@ export const build = gulp.series(sass, templates, assets);
 
 export function watch() {
   gulp.watch(PATHS.APP.SASS.src, sass);
-  gulp.watch(PATHS.APP.PAGES.src, templates);
+  gulp.watch(PATHS.APP.TEMPLATES.src, templates);
   gulp.watch(PATHS.APP.ROOT.src, assets);
+  gulp.watch(PATHS.APP.DEPLOY.src, deploy);
 }
 
 function emptyDefault() {}

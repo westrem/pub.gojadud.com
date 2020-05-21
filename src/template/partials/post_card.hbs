@@ -1,0 +1,31 @@
+<article class="post-card">
+  {{#if tags}}
+  <section class="tags tags-horizontal">
+    {{#foreach tags}}
+      <a href="{{url}}" title="{{name}}" class="tag tag-{{slug}}">#{{name}}</a>
+    {{/foreach}}
+  </section>
+  {{/if}}
+
+  <a href="{{url}}" class="post-link">
+    <h2>{{title}}</h2>
+    <p>{{excerpt words="60"}}</p>
+
+    <footer>
+      <span class="reading-time">{{reading_time}} time</span>
+      {{#if primary_tag}}
+        {{#primary_tag}}
+        <div class="category category-{{slug}}"> {{!-- Poor man's switch --}}
+          <span class="category--emoji category--emoji-dev">👨‍💻</span>
+          <span class="category--emoji category--emoji-design">🌈</span>
+          <span class="category--emoji category--emoji-tip">⚡️</span>
+          <span class="category--emoji category--emoji-opinion">🤔</span>
+          <span class="category--emoji category--emoji-tech">🕹</span>
+          <span class="category--emoji category--emoji-softskill">🍰</span>
+        </div>
+        {{/primary_tag}}
+      {{/if}}
+      <hr />
+    </footer>
+  </a>
+</article>

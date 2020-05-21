@@ -6,17 +6,18 @@
   <title>{{meta_title}}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700|Fira+Mono|Vesper+Libre&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Mono&family=Roboto:wght@400;700&family=Vesper+Libre:wght@400;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" type="text/css" href="{{asset "css/normalize.css"}}" />
   <link rel="stylesheet" type="text/css" href="{{asset "css/main.css"}}" />
+  <link rel="stylesheet" type="text/css" href="{{asset "css/prism.css"}}" />
 
   {{ghost_head}}
 </head>
 
 <body class="{{body_class}}">
   <div class="wrapper">
-    <header>
+    <header class="page">
       <a href="https://gojadud.com" class="logo" title="Go to homepage">
         <img src="{{asset "images/logo_jdd@2x.png"}}" alt="Jdd" />
       </a>
@@ -52,11 +53,20 @@
       </address>
     </section>
 
-    <main class="{{post_class}}">
+    <main>
       {{{body}}}
     </main>
   </div>
 
+  <script src="{{asset "prism.js"}}"></script>
+  <script>
+    window.addEventListener('DOMContentLoaded', (event) => {
+        document.querySelectorAll('pre[class*=language-]').forEach(function(node) {
+            node.classList.add('line-numbers');
+    });
+        Prism.highlightAll();
+    });
+</script>
   {{ghost_foot}}
 </body>
 
