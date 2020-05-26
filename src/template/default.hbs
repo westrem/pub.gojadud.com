@@ -40,10 +40,7 @@
             <a href="https://gojadud.com/skills.html"><span>🕹</span>Skills</a>
           </li>
           <li class="active">
-            <a href="{{@site.url}}"><span>🗞</span>Articles</a>
-          </li>
-          <li class="disabled">
-            <a href="#" title="Coming soon"><span>🔬</span>Case Studies</a>
+            <a href="{{@site.url}}"><span>✍️</span>Articles</a>
           </li>
         </ul>
       </nav>
@@ -61,12 +58,28 @@
   <script src="{{asset "prism.js"}}"></script>
   <script>
     window.addEventListener('DOMContentLoaded', (event) => {
-        document.querySelectorAll('pre[class*=language-]').forEach(function(node) {
-            node.classList.add('line-numbers');
+      document.querySelectorAll('.linenumbers pre').forEach(function(node) {
+        node.classList.add('line-numbers');
+      });
+      Prism.highlightAll();
+
+      document.querySelectorAll('article.post-full .post-content a').forEach(function(node) {
+        node.setAttribute("target", "_blank");
+      });
     });
-        Prism.highlightAll();
-    });
-</script>
+  </script>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-90313152-3', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+      window.setTimeout(function() {
+        ga('send', 'event', 'Visit length', 'Stayed 7s', 7 * 1000); // adjust bounce rate
+      }, 7 * 1000);
+  </script>
   {{ghost_foot}}
 </body>
 

@@ -17,9 +17,35 @@
       {{/foreach}}
     </section>
     <section class="tags tags-vertical">
-      <span><a href="#" title="Share on Facebook" class="tag">facebook</a></span>
-      <span><a href="#" title="Share on Twitter" class="tag">twitter</a></span>
-      <span><a href="#" title="Share via Email" class="tag">email</a></span>
+      <span>
+        <a
+          title="Share on Facebook"
+          class="tag"
+          href="https://www.facebook.com/sharer/sharer.php?u={{url absolute="true"}}"
+          onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;"
+        >
+          facebook
+        </a>
+      </span>
+      <span>
+        <a
+          title="Share on Twitter"
+          class="tag"
+          href="https://twitter.com/share?text={{title}}&url={{url absolute="true"}}"
+          onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;"
+        >
+        twitter
+        </a>
+      </span>
+      <span>
+        <a
+          title="Share via Email"
+          class="tag"
+          href="mailto:?subject={{title}}&amp;body={{url absolute="true"}}"
+        >
+          email
+        </a>
+      </span>
     </section>
   </aside>
 
@@ -53,9 +79,29 @@
       {{/foreach}}
     </section>
     <section class="tags tags-horizontal">
-      <a href="#" title="Share on Facebook" class="tag">facebook</a>
-      <a href="#" title="Share on Twitter" class="tag">twitter</a>
-      <a href="#" title="Share via Email" class="tag">email</a>
+      <a
+        title="Share on Facebook"
+        class="tag"
+        href="https://www.facebook.com/sharer/sharer.php?u={{url absolute="true"}}"
+        onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;"
+      >
+        facebook
+      </a>
+      <a
+        title="Share on Twitter"
+        class="tag"
+        href="https://twitter.com/share?text={{title}}&url={{url absolute="true"}}"
+        onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;"
+      >
+      twitter
+      </a>
+      <a
+        title="Share via Email"
+        class="tag"
+        href="mailto:?subject={{title}}&amp;body={{url absolute="true"}}"
+      >
+        email
+      </a>
     </section>
   </footer>
 

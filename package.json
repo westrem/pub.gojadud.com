@@ -1,8 +1,13 @@
 {
-  "name": "pub.gojadud.com",
+  "name": "pub-gojadud-com",
   "version": "1.0.0",
-  "authors": [
-    "Jan Jadud <jan.jadud@gmail.com>"
+  "author": {
+    "name": "Jan Jadud",
+    "email": "hello@gojadud.com",
+    "url": "https://gojadud.com"
+  },
+  "keywords": [
+    "ghost-theme"
   ],
   "engines": {
     "ghost": ">=3.0.0",

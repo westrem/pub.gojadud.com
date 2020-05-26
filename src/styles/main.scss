@@ -15,6 +15,9 @@ $color-link-active: #1c83bf;
 $color-link-visited: #a07e9c;
 $color-link-disabled: #808080;
 
+$spacing-big: 45px;
+$spacing-big-mobile: 20px;
+
 // font-family: 'Fira Mono', monospace;
 
 /*
@@ -35,11 +38,19 @@ $color-link-disabled: #808080;
   & + .kg-card,
   & + hr,
   & + a.link-card,
+  & + figure,
+  & + pre {
+    margin-top: 0px;
+  }
+
+  /* Doesn't work because of no CSS selectors precedence rules, aka hr + .class elem is not the same as hr + (.class elem)
   hr + &,
   h2 + &,
   h3 + &,
   ol + &,
   ul + &,
+  pre + &,
+  figure + &,
   a.link-card + &,
   blockquote + &,
   .kg-image + &,
@@ -48,9 +59,24 @@ $color-link-disabled: #808080;
   .kg-gallery-container + &,
   .kg-code-card + &,
   .kg-bookmark-card + &,
-  .kg-card + & {
-    margin-top: 0px;
+  .kg-card + &
+   */
+}
+
+@mixin commonBlockSpacing {
+  margin: $spacing-big-mobile 0px;
+
+  @include moreThan641 {
+    margin: $spacing-big 0px;
   }
+
+  //p + & {
+  //  margin: ($spacing-big-mobile - 5px) 0px;
+  //
+  //  @include moreThan641 {
+  //    margin: ($spacing-big - 7px) 0px;
+  //  }
+  //}
 }
 
 /*
@@ -698,7 +724,7 @@ article.post-full .post-content {
     padding: 0px 20px;
   }
 
-  p {
+  & > p {
     font-family: 'Vesper Libre', serif;
     margin: 0px;
     padding: 0px;
@@ -812,11 +838,7 @@ article.post-full .post-content {
 
   /* Special links */
   .link-cards {
-    margin: 30px 0px;
-
-    @include moreThan641 {
-      margin: 60px 0px;
-    }
+    @include commonBlockSpacing;
   }
 
   a.link-card {
@@ -930,7 +952,6 @@ article.post-full .post-content {
 
   ol, ul {
     position: relative;
-    margin: 30px 0px;
     list-style: none;
     padding-left: 43px;
     color: $color-disabled;
@@ -939,12 +960,12 @@ article.post-full .post-content {
     line-height: 2.5rem;
 
     @include moreThan641 {
-      margin: 60px 0px;
       font-size: 1.8rem;
       line-height: 3.3rem;
     }
 
     @include blockSpacing;
+    @include commonBlockSpacing;
   }
 
   li {
@@ -994,14 +1015,14 @@ article.post-full .post-content {
 
   hr {
     max-width: 80%;
-    margin: 30px auto;
     height: 1px;
     border: none;
     background-color: #cccccc;
 
-    @include moreThan641 {
-      margin: 60px auto;
-    }
+    @include commonBlockSpacing;
+
+    margin-left: auto !important;
+    margin-right: auto !important;
   }
 
   b, strong {
@@ -1009,26 +1030,33 @@ article.post-full .post-content {
   }
 
   i, em {
-    font-style: italic;
+    font-style: normal;
+    color: $color-disabled;
   }
 
   mark {
-    background: #FFE066;
+    background: rgba(255, 224, 102, 0.4);
     text-shadow: none;
-    display: inline-block;
     padding: 0px 4px;
-    color: $color-text;
+    color: #242424; // Not $color-text because of contrast;
   }
 
   blockquote {
     position: relative;
-    margin: 30px 0px;
-    font-family: 'Vesper Libre', serif;
-    font-size: 2rem;
-    line-height: 2.6rem;
-    text-align: center;
-    color: $color-text;
     padding-top: 4.5rem;
+
+    &, & p {
+      font-family: 'Vesper Libre', serif;
+      font-size: 2rem;
+      line-height: 2.6rem;
+      text-align: center;
+      color: $color-text;
+    }
+
+    p {
+      margin: 0px;
+      padding: 0px;
+    }
 
     &::before, &::after {
       position: absolute;
@@ -1052,10 +1080,12 @@ article.post-full .post-content {
     }
 
     @include moreThan641 {
-      margin: 60px 0px;
       padding: 0px 50px;
-      font-size: 2.4rem;
-      line-height: 4rem;
+
+      &, & p {
+        font-size: 2.4rem;
+        line-height: 4rem;
+      }
 
       &::before {
         top: auto;
@@ -1078,18 +1108,15 @@ article.post-full .post-content {
     }
 
     @include blockSpacing;
+    @include commonBlockSpacing;
   }
 
   /* Koenig styles: start */
   .kg-card, figure {
-    margin: 30px 0px;
     padding: 0px;
 
-    @include moreThan641 {
-      margin: 60px 0px;
-    }
-
     @include blockSpacing;
+    @include commonBlockSpacing;
   }
 
   figure figcaption {
@@ -1129,7 +1156,6 @@ article.post-full .post-content {
   }
 
   .kg-code-card pre, pre {
-    margin: 30px 0px;
     padding: 10px;
     font-family: 'Fira Mono', monospace;
     font-weight: 400;
@@ -1145,7 +1171,6 @@ article.post-full .post-content {
     }
 
     @include moreThan641 {
-      margin: 60px 0px;
       padding: 15px;
       font-size: 1.3rem;
       line-height: 1.8rem;
@@ -1156,12 +1181,21 @@ article.post-full .post-content {
     }
 
     @include blockSpacing;
+    @include commonBlockSpacing;
 
     code .token {
       &.selector, &.keyword {
         font-weight: 700;
       }
     }
+
+    //p + & {
+    //  margin-top: 15px;
+    //
+    //  @include moreThan641 {
+    //    margin-top: 20px;
+    //  }
+    //}
   }
 
   code, kbd, samp {
@@ -1193,7 +1227,7 @@ article.post-full .post-content {
       line-height: 1.5rem;
       color: $color-text-inverted;
       background-color: $color-text;
-      border-radius: 2px;
+      border-radius: 4px;
       padding: 1px 3px;
       position: relative;
       top: -1px;
@@ -1421,6 +1455,24 @@ article.post-full .post-content {
     }
   }
   /* Koenig styles: end */
+}
+
+article.post-full .post-content p {
+  & + ol,
+  & + ul,
+  & + blockquote,
+  & + .kg-card,
+  & + hr,
+  & + .link-cards,
+  & + figure,
+  & + .linenumbers,
+  & + pre {
+    margin-top: ($spacing-big-mobile - 5px);
+
+    @include moreThan641 {
+      margin-top: ($spacing-big - 7px);
+    }
+  }
 }
 
 article.post-full > footer {
@@ -1661,7 +1713,7 @@ article.post-full > footer {
       @include upTo1199 {
         text-align: center;
         padding: 10px 0px;
-        width: 20%;
+        width: 25%;
       }
 
       @include moreThan1200 {
